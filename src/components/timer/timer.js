@@ -23,7 +23,7 @@ class Timer extends React.Component {
         this.setState({ count: this.minToSeconds(this.props.LongBreakTime) });
         break;
       case 'shortbreak':
-        this.setState({ count: this.minToSeconds(this.props.LongBreakTime) });
+        this.setState({ count: this.minToSeconds(this.props.ShortBreakTime) });
         break;
       default:
         this.setState({ count: this.minToSeconds(this.props.StudyTime) });
