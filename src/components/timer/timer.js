@@ -9,7 +9,7 @@ class Timer extends React.Component {
     super(props);
     this.state = {
       currentTimer: 'study',
-      count: 0,
+      count: this.minToSeconds(this.props.StudyTime),
     };
   }
 
@@ -45,10 +45,12 @@ class Timer extends React.Component {
   };
   // Changing The Timer of Timer
   changeTimer = (timerType) => {
-    this.setState({
-      currentTimer: timerType,
-    });
-    this.currentState();
+    this.setState(
+      {
+        currentTimer: timerType,
+      },
+      () => this.currentState()
+    );
   };
 
   render() {
@@ -89,7 +91,6 @@ class Timer extends React.Component {
   }
 
   componentDidMount() {
-    this.currentState();
     setInterval(() => {
       this.countDown();
     }, 1000);
