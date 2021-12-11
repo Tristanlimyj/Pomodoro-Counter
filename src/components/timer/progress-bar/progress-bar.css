@@ -21,6 +21,13 @@
   .desktop {
     display: none;
   }
+  .progress-bar-row {
+    margin-top: 12.5%;
+    margin-bottom: 12.5%;
+  }
+  .progress {
+    height: 200%;
+  }
 }
 @media only screen and (min-width: 600px) {
   .mobile {

@@ -12,10 +12,15 @@
   border-color: #000000;
   border-width: 1.75px;
   font-family: 'Abril Fatface', cursive;
+  text-align: left;
 }
 
 /* Side Text */
 @media only screen and (max-width: 600px) {
+  .background {
+    width: 95%;
+    margin-left: 2.5%;
+  }
   .text-col-desktop {
     display: none;
   }

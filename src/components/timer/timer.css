@@ -6,6 +6,10 @@
   width: 35%;
 }
 
+#counter-row {
+  margin-top: 6%;
+}
+
 #button-row {
   margin-top: 1.5%;
   margin-bottom: 3%;
@@ -34,7 +38,11 @@
     width: 90%;
   }
   .setting-btns {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     width: 23%;
+    margin-bottom: 1.5rem;
+  }
+  #study-btn-row {
+    margin-top: 4%;
   }
 }
