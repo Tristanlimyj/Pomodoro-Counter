@@ -1,9 +1,6 @@
 import React from 'react';
 
 class ControlButton extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   timerCall = () => {
     this.props.changeTimer(this.props.timerType);
   };
@@ -13,6 +10,7 @@ class ControlButton extends React.Component {
         className='setting-btns'
         src={this.props.btnImg}
         onClick={this.timerCall}
+        alt='setting btns'
       />
     );
   }

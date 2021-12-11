@@ -10,10 +10,6 @@ import FormField from './form-field/form-field';
 import './form.css';
 
 class InputForm extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Row className='background-body'>
@@ -50,6 +46,7 @@ class InputForm extends React.Component {
             src='/submit-btn.png'
             id='submit-btn'
             onClick={this.props.formSubmit}
+            alt='submit-btn'
           />
         </Col>
       </Row>

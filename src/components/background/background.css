@@ -4,7 +4,7 @@
   border-width: 3px;
   border-color: #000000;
   height: 95%;
-  margin-top: 2.5%;
+  margin-top: 2%;
 }
 
 .background-header {
@@ -15,12 +15,32 @@
 }
 
 /* Side Text */
-.text-col {
-  padding: 0px;
-  position: relative;
+@media only screen and (max-width: 600px) {
+  .text-col-desktop {
+    display: none;
+  }
+  .text-col-desktop {
+    display: none;
+  }
+  .text-col-mobile {
+    text-align: left;
+  }
+  .text-img-mobile {
+    width: 100%;
+  }
 }
 
-.text-img {
-  position: absolute;
-  bottom: 0;
+@media only screen and (min-width: 600px) {
+  .text-col-desktop {
+    padding: 0px;
+    position: relative;
+  }
+
+  .text-img-desktop {
+    position: absolute;
+    bottom: 0;
+  }
+  .text-col-mobile {
+    display: none;
+  }
 }

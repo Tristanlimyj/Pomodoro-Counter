@@ -24,14 +24,34 @@ const Background = (props) => {
           {props.body}
         </Col>
         <Col
-          className='text-col'
+          className='text-col-desktop'
           sm={{ span: 1 }}
           md={{ span: 1 }}
           lg={{ span: 1 }}
           xl={{ span: 1 }}
           xxl={{ span: 1 }}
         >
-          <img className='text-img' src={props.image} />
+          <img
+            className='text-img-desktop'
+            src={props.image}
+            alt='productivity'
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col
+          className='text-col-mobile'
+          sm={{ span: 12 }}
+          md={{ span: 12 }}
+          lg={{ span: 12 }}
+          xl={{ span: 12 }}
+          xxl={{ span: 12 }}
+        >
+          <img
+            className='text-img-mobile'
+            src={props.image.replace('.png', '-hor.png')}
+            alt='productivity'
+          />
         </Col>
       </Row>
     </Container>

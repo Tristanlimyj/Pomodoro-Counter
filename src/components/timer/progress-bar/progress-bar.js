@@ -7,10 +7,6 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import './progress-bar.css';
 
 class StatusBar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   currentPercentage = () => {
     const currentCount = this.props.totalCount - this.props.timeLeft;
     const currentPercentage = Math.round(
@@ -25,19 +21,26 @@ class StatusBar extends React.Component {
 
   render() {
     return (
-      <Row className='progress-bar-row'>
+      <Row className='progress-bar-row '>
+        <Col className='mobile'>
+          <ProgressBar
+            now={this.currentCount()}
+            max={this.props.totalCount}
+            label={this.currentPercentage()}
+          />
+        </Col>
         <Col
-          sm={{ span: 10, offset: 1 }}
-          md={{ span: 10, offset: 1 }}
+          className='desktop'
+          sm={{ span: 12 }}
+          md={{ span: 12 }}
           lg={{ span: 7, offset: 2 }}
           xl={{ span: 7, offset: 2 }}
           xxl={{ span: 7, offset: 2 }}
         >
           <ProgressBar now={this.currentCount()} max={this.props.totalCount} />
         </Col>
-
         <Col
-          className='progress-bar-percentage'
+          className='progress-bar-percentage desktop'
           sm={{ span: 1 }}
           md={{ span: 1 }}
           lg={{ span: 1 }}

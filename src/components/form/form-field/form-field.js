@@ -7,10 +7,6 @@ import './form-field.css';
 
 // name, placeholder, default_value, label
 class FormField extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   emitData = (event) => {
     this.props.setState(event, this.props.name);
   };

@@ -37,3 +37,19 @@
 #submit-btn:hover {
   cursor: pointer;
 }
+
+/* Form Background */
+@media only screen and (max-width: 600px) {
+  .background-body {
+    text-align: center;
+  }
+  .form-background {
+    margin-top: 0px;
+    width: 92%;
+    margin-left: 4%;
+    text-align: center;
+  }
+  #submit-btn {
+    width: 80%;
+  }
+}

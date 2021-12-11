@@ -17,6 +17,8 @@ class Timer extends React.Component {
       currentTimer: 'study',
       originalCount: this.minToSeconds(this.props.StudyTime),
       count: this.minToSeconds(this.props.StudyTime),
+      showCount: true,
+      audioPlayed: false,
     };
   }
 
@@ -48,15 +50,24 @@ class Timer extends React.Component {
         });
         break;
     }
-
+    this.setState({
+      audioPlayed: false,
+    });
     return;
   };
 
   // Counting Down
   countDown = () => {
     // while more than 0
-    this.setState((prevState) => ({ count: prevState.count - 1 }));
-    // change the state to show pop up
+    if (this.state.count > 0) {
+      this.setState((prevState) => ({ count: prevState.count - 1 }));
+    }
+    if (this.state.count === 0 && !this.state.audioPlayed) {
+      this.playAudio();
+      this.setState({
+        audioPlayed: true,
+      });
+    }
   };
   // Minutes to Seconds -> Interger
   minToSeconds = (mins) => {
@@ -72,6 +83,21 @@ class Timer extends React.Component {
     );
   };
 
+  // When it reaches 0 it will cause it to blink
+  blinkAtZero = () => {
+    if (this.state.count === 0) {
+      this.setState({
+        showCount: !this.state.showCount,
+      });
+    }
+  };
+
+  // Playing the Audio
+  playAudio = () => {
+    const audio = new Audio('/alarm.wav');
+    audio.play();
+  };
+
   render() {
     return (
       <div>
@@ -81,7 +107,10 @@ class Timer extends React.Component {
         />
         <Row id='counter-row'>
           <Col id='counter-col'>
-            <Counter value={this.state.count} />
+            <Counter
+              showCount={this.state.showCount}
+              value={this.state.count}
+            />
           </Col>
         </Row>
         <Row id='study-btn-row'>
@@ -90,6 +119,7 @@ class Timer extends React.Component {
               src='/study-btn.png'
               id='study-btn'
               onClick={this.changeTimer}
+              alt='start studying'
             />
           </Col>
         </Row>
@@ -97,7 +127,7 @@ class Timer extends React.Component {
           <Col
             id='button-col'
             sm={{ span: 12 }}
-            md={{ span: 10, offset: 1 }}
+            md={{ span: 12 }}
             lg={{ span: 10, offset: 1 }}
             xl={{ span: 8, offset: 2 }}
             xxl={{ span: 8, offset: 2 }}
@@ -116,6 +146,7 @@ class Timer extends React.Component {
               className='setting-btns'
               src='/settings-btn.png'
               onClick={this.props.resetForm}
+              alt='change settings'
             />
           </Col>
         </Row>
@@ -127,6 +158,9 @@ class Timer extends React.Component {
     setInterval(() => {
       this.countDown();
     }, 1000);
+    setInterval(() => {
+      this.blinkAtZero();
+    }, 750);
   }
 }
 
