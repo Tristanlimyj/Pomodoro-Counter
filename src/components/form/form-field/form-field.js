@@ -19,9 +19,11 @@ class FormField extends React.Component {
     return React.createElement(
       'Row',
       { className: 'form-component' },
-      <Form.Label>{this.props.label}</Form.Label>,
-      <Row class='form-range'>
-        <Col xs={9} sm={9} md={9} lg={9} xl={9} xxl={9}>
+      <Row className='form-row'>
+        <Col xs={2} sm={2} md={2} lg={2} xl={2} xxl={2}>
+          <Form.Label>{this.props.label}</Form.Label>
+        </Col>
+        <Col xs={7} sm={7} md={7} lg={7} xl={7} xxl={7}>
           <Form.Range
             min='5'
             max='60'
@@ -29,8 +31,21 @@ class FormField extends React.Component {
             onChange={this.emitData}
           />
         </Col>
-        <Col xs={3} sm={3} md={3} lg={3} xl={3} xxl={3}>
-          <p>{this.props.value} mins</p>
+        <Col
+          className='range-mins-col'
+          xs={3}
+          sm={3}
+          md={3}
+          lg={3}
+          xl={3}
+          xxl={3}
+        >
+          <div className='range-mins'>
+            <span className='range-value'>
+              {String(this.props.value).padStart(2, '0')}
+            </span>
+            <span className='mins-text'>mins</span>
+          </div>
         </Col>
       </Row>
     );

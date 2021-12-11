@@ -1,0 +1,87 @@
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-top: 7.5%;
+}
+/* Label */
+.form-label {
+  text-align: center;
+}
+
+/* Slider */
+.form-range {
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+}
+.form-range:hover {
+  opacity: 1;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1px;
+  background-color: #000000;
+}
+
+.form-range::-moz-range-track {
+  height: 1px;
+  background-color: #000000;
+}
+
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: #7c7c7c;
+  border-radius: 1px;
+  cursor: pointer;
+}
+.form-range::-moz-range-thumb {
+  width: 0.75rem;
+  height: 0.75rem;
+  background: #7c7c7c;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.form-range:focus::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  background-color: #000000;
+}
+.form-range:focus::-moz-range-thumb {
+  box-shadow: none;
+  background-color: #000000;
+  margin: 0px;
+}
+
+/* Range Value */
+.range-mins-col {
+  padding: 0px;
+}
+.range-mins {
+  vertical-align: middle;
+}
+
+.range-value,
+.mins-text {
+  margin: 0px;
+}
+.range-value {
+  font-size: calc(10px + 0.75vmin);
+  color: #ffffff;
+  font-weight: bold;
+  background-image: url('minute-background.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+.mins-text {
+  margin-left: 6px;
+}

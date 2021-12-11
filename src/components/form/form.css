@@ -1,3 +1,39 @@
+/* Form */
+.background-body {
+  margin-top: calc(50px - 3vh);
+  font-family: 'Roboto Mono', monospace;
+}
+
+.form-background {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 2px;
+  text-align: center;
+  box-shadow: -6px 12px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 2.5%;
+  margin-bottom: 10%;
+}
+
+.form-header {
+  font-weight: bold;
+  text-shadow: -1px 2px 0 rgba(0, 0, 0, 0.25);
+  margin-top: 2.5%;
+  margin-bottom: 18%;
+}
+
+.info-form {
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
 #submit-btn {
-  width: 90%;
+  width: 60%;
+  font-size: calc(30px - 1vh);
+  font-weight: bold;
+  border-radius: 10px;
+  margin-bottom: 16%;
+}
+
+#submit-btn:hover {
+  cursor: pointer;
 }

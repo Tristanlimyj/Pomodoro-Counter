@@ -1,0 +1,31 @@
+#study-btn-row {
+  margin-top: 0%;
+}
+
+#study-btn-col {
+  width: 35%;
+}
+
+#button-row {
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+#button-col,
+#study-btn-col,
+#counter-col {
+  text-align: center;
+}
+
+.setting-btns {
+  width: 15%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.setting-btns:hover {
+  cursor: pointer;
+}
+#study-btn:hover {
+  cursor: pointer;
+}

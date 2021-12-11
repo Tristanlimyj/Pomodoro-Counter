@@ -1,4 +1,5 @@
 import React from 'react';
+import './counter.css';
 
 class Counter extends React.Component {
   constructor(props) {
@@ -9,15 +10,11 @@ class Counter extends React.Component {
     let minutes = Math.floor(this.props.value / 60).toString();
     let seconds = (this.props.value % 60).toString();
 
-    return minutes.padStart(2, '0') + ':' + seconds.padEnd(2, '0');
+    return minutes.padStart(2, '0') + ':' + seconds.padStart(2, '0');
   };
 
   render() {
-    return React.createElement(
-      'h1',
-      { className: 'counter' },
-      this.minsAndSeconds()
-    );
+    return <h1 className='counter'>{this.minsAndSeconds()}</h1>;
   }
 }
 

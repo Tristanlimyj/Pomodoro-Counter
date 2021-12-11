@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 
 import Timer from './components/timer/timer';
 import InputForm from './components/form/form';
+import Background from './components/background/background';
 
 import './App.css';
 
@@ -52,10 +53,7 @@ class PomodoroApp extends React.Component {
         />
       );
     }
-    return React.createElement(
-      'div',
-      { className: 'App-header' },
-      React.createElement('h1', null, 'Studying is a lifestyle'),
+    return (
       <InputForm
         StudyTime={this.state.StudyTime}
         ShortBreakTime={this.state.ShortBreakTime}
@@ -66,10 +64,17 @@ class PomodoroApp extends React.Component {
     );
   };
 
+  sideBarImg = () => {
+    if (this.state.completedForm) {
+      return '/WHPH.png';
+    }
+    return '/productivity-text.png';
+  };
+
   render() {
     return (
       <Container fluid className='App'>
-        {this.timerOrForm()}
+        <Background body={this.timerOrForm()} image={this.sideBarImg()} />
       </Container>
     );
   }

@@ -1,14 +1,21 @@
 import React from 'react';
 
-import Counter from './counter';
-import ControlButton from './control-button';
-import ResetButton from './reset-button';
+import Counter from './counter/counter';
+import ControlButton from './control-btn/control-btn';
+import StatusBar from './progress-bar/progress-bar';
+
+// Bootstrap
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+import './timer.css';
 
 class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentTimer: 'study',
+      originalCount: this.minToSeconds(this.props.StudyTime),
       count: this.minToSeconds(this.props.StudyTime),
     };
   }
@@ -17,16 +24,28 @@ class Timer extends React.Component {
   currentState = () => {
     switch (this.state.currentTimer) {
       case 'study':
-        this.setState({ count: this.minToSeconds(this.props.StudyTime) });
+        this.setState({
+          originalCount: this.minToSeconds(this.props.StudyTime),
+          count: this.minToSeconds(this.props.StudyTime),
+        });
         break;
       case 'longbreak':
-        this.setState({ count: this.minToSeconds(this.props.LongBreakTime) });
+        this.setState({
+          originalCount: this.minToSeconds(this.props.LongBreakTime),
+          count: this.minToSeconds(this.props.LongBreakTime),
+        });
         break;
       case 'shortbreak':
-        this.setState({ count: this.minToSeconds(this.props.ShortBreakTime) });
+        this.setState({
+          originalCount: this.minToSeconds(this.props.ShortBreakTime),
+          count: this.minToSeconds(this.props.ShortBreakTime),
+        });
         break;
       default:
-        this.setState({ count: this.minToSeconds(this.props.StudyTime) });
+        this.setState({
+          originalCount: this.minToSeconds(this.props.StudyTime),
+          count: this.minToSeconds(this.props.StudyTime),
+        });
         break;
     }
 
@@ -54,38 +73,52 @@ class Timer extends React.Component {
   };
 
   render() {
-    return React.createElement(
-      'div',
-      { className: 'timer' },
-      <Counter value={this.state.count} />,
-      <div className='d-grid gap-2'>
-        <ControlButton
-          changeTimer={this.changeTimer}
-          buttonSize='lg'
-          buttonVariant='primary'
-          buttonText='Study'
-          timerType='study'
+    return (
+      <div>
+        <StatusBar
+          timeLeft={this.state.count}
+          totalCount={this.state.originalCount}
         />
-        <ControlButton
-          changeTimer={this.changeTimer}
-          buttonSize='lg'
-          buttonVariant='primary'
-          buttonText='Long Break'
-          timerType='longbreak'
-        />
-        <ControlButton
-          changeTimer={this.changeTimer}
-          buttonSize='lg'
-          buttonVariant='primary'
-          buttonText='Short Break'
-          timerType='shortbreak'
-        />
-        <ResetButton
-          buttonSize='lg'
-          buttonVariant='primary'
-          buttonText='Reset Settings'
-          resetForm={this.props.resetForm}
-        />
+        <Row id='counter-row'>
+          <Col id='counter-col'>
+            <Counter value={this.state.count} />
+          </Col>
+        </Row>
+        <Row id='study-btn-row'>
+          <Col id='study-btn-col'>
+            <img
+              src='/study-btn.png'
+              id='study-btn'
+              onClick={this.changeTimer}
+            />
+          </Col>
+        </Row>
+        <Row id='button-row'>
+          <Col
+            id='button-col'
+            sm={{ span: 12 }}
+            md={{ span: 10, offset: 1 }}
+            lg={{ span: 10, offset: 1 }}
+            xl={{ span: 8, offset: 2 }}
+            xxl={{ span: 8, offset: 2 }}
+          >
+            <ControlButton
+              changeTimer={this.changeTimer}
+              btnImg='/long-break-btn.png'
+              timerType='longbreak'
+            />
+            <ControlButton
+              changeTimer={this.changeTimer}
+              btnImg='/short-break-btn.png'
+              timerType='shortbreak'
+            />
+            <img
+              className='setting-btns'
+              src='/settings-btn.png'
+              onClick={this.props.resetForm}
+            />
+          </Col>
+        </Row>
       </div>
     );
   }
