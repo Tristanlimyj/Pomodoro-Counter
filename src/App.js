@@ -13,7 +13,7 @@ class PomodoroApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      completedForm: true,
+      completedForm: false,
       StudyTime: 25,
       ShortBreakTime: 5,
       LongBreakTime: 15,
