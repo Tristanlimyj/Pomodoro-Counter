@@ -1,5 +1,7 @@
 # Pomodoro Counter
 
+The counter was built using ReactJs. This is my favourite work/study method, for someone with a short attention span, it increases my productivity by 10 fold!!!
+
 Project Link: https://pomodoro-counter.goodfunfriday.com/
 
 ## Introduction
