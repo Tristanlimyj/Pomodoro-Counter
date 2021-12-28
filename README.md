@@ -1,6 +1,6 @@
 # Pomodoro Counter
 
-Tech Stack: ReactJS
+Built Using: ReactJs
 Project Link: https://pomodoro-counter.goodfunfriday.com/
 
 ## Introduction
